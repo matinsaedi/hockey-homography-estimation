@@ -2,7 +2,7 @@
 
 EECS 4422/5323 (Computer Vision) course project — York University, Fall 2025.
 
-**Team 3:** Seyed Mohammad Matin Bani Saedi, Xingbang Tang, Micheal Habib, Lion Isakov
+**Team 3:** Matin Saedi, Xingbang Tang, Micheal Habib, Lion Isakov
 
 ## Abstract
 
