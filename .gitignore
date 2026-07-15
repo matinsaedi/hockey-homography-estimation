@@ -1,0 +1,16 @@
+# OS junk
+.DS_Store
+__MACOSX/
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Editors
+.vscode/
+.idea/
