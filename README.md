@@ -1,6 +1,6 @@
 # Homography Estimation on Ice Hockey Rinks
 
-EECS 4422/5323 (Computer Vision) course project — York University, Fall 2025.
+EECS 5323 (Computer Vision) course project — York University, Fall 2025.
 
 **Team 3:** Matin Saedi, Xingbang Tang, Micheal Habib, Lion Isakov
 
