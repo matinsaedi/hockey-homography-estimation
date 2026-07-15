@@ -12,7 +12,7 @@ This project presents a robust, coarse-to-fine computer vision pipeline for esti
 
 On a held-out set of NHL playoff frames, the method achieves a mean reprojection error of **1.70 px** (median 1.23 px), outperforming a general-purpose matcher (LightGlue) in scenarios with heavy occlusion and rink symmetry ambiguities.
 
-The full write-up is in [`Team 3 - Project Report/Team 3 - Project Report.pdf`](<Team 3 - Project Report/Team 3 - Project Report.pdf>).
+The full write-up is in [`docs/report.pdf`](docs/report.pdf).
 
 ## Pipeline
 
@@ -23,7 +23,7 @@ The full write-up is in [`Team 3 - Project Report/Team 3 - Project Report.pdf`](
    - *ECC refinement:* `cv2.findTransformECC`, initialized with `H_init`, aligns the binary skeletons of the test and training frames directly for sub-pixel accuracy (`H_refined`).
 4. **Final Homography (RHO):** The refined transform projects the training frame's ground-truth keypoints onto the test frame, and `cv2.findHomography` with the `RHO` flag (3.0 px inlier threshold) computes the final mapping from the test frame to the fixed bird's-eye template.
 
-An earlier variant of the retrieval stage (matching on the rink's yellow boundary line rather than HOG) is preserved in `yellow_line_matching_pipeline.ipynb` for reference; the HOG-based approach in the report and in `HOG_pipeline.ipynb` is the one that shipped.
+An earlier variant of the retrieval stage (matching on the rink's yellow boundary line rather than HOG) is preserved in `notebooks/yellow_line_matching_pipeline.ipynb` for reference; the HOG-based approach in the report and in `notebooks/HOG_pipeline.ipynb` is the one that shipped.
 
 ## Results
 
@@ -32,23 +32,19 @@ Mean reprojection error across the 10-image test set: **1.70 px** (median 1.23, 
 ## Repository layout
 
 ```
-Team 3 - Project Report/
-  Team 3 - Project Report.pdf     # full report
-  Codes/
-    HOG_pipeline.ipynb             # main pipeline (HOG retrieval -> adaptive features -> masked SIFT -> ECC -> RHO), incl. LightGlue comparison
-    yellow_line_matching_pipeline.ipynb   # earlier yellow-line retrieval variant
+notebooks/
+  HOG_pipeline.ipynb                   # main pipeline (HOG retrieval -> adaptive features -> masked SIFT -> ECC -> RHO), incl. LightGlue comparison
+  yellow_line_matching_pipeline.ipynb  # earlier yellow-line retrieval variant
 
-HockeyHomographyTrain/
-  template/                       # bird's-eye rink template + its labeled keypoints
-  train/images/, train/points/    # 21 training frames and their manually annotated keypoints
-HockeyHomographyTrain.zip          # zipped copy of the above
+docs/
+  report.pdf                # full project report
 
-HockeyHomographyTest/
-  test/images/, test/points/      # 10 held-out test frames and their annotated keypoints
-HockeyHomographyTest.zip           # zipped copy of the above
-
-bird.txt                          # master list of rink/template keypoint labels and bird's-eye coordinates
-EECS 4422-5323F Project Guidelines.pdf   # course project guidelines
+data/
+  template/                 # bird's-eye rink template, perspective template, and their labeled keypoints
+  train/
+    images/, points/        # 21 training frames and their manually annotated keypoints
+  test/
+    images/, points/        # 10 held-out test frames and their annotated keypoints
 ```
 
 ## Dataset
@@ -59,7 +55,7 @@ EECS 4422-5323F Project Guidelines.pdf   # course project guidelines
 
 ## Running the notebooks
 
-The notebooks expect the `HockeyHomographyTrain/` and `HockeyHomographyTest/` folders to be available at the repo root (adjust the hardcoded paths at the top of each notebook if you relocate them). Dependencies:
+The notebooks expect to be run from the repository root, with the `data/` folder in place (adjust the hardcoded paths at the top of each notebook if you relocate it). Dependencies:
 
 ```
 pip install opencv-python opencv-contrib-python numpy matplotlib pandas scikit-image

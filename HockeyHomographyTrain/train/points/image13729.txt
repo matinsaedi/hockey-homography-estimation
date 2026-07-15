@@ -1,6 +1,0 @@
-center_circle_bottom 604.7 951.3
-center_circle_top 595.5 624.0
-center_red_line 588.5 420.0
-bottom_right_small_circle 1409.0 1034.0
-top_right_small_circle 1168.5 554.5
-right_blue_line 1238.0 408.0
