@@ -2,8 +2,6 @@
 
 EECS 5323 (Computer Vision) course project — York University, Fall 2025.
 
-**Team Members:** Matin Saedi, Xingbang Tang, Micheal Habib, Lion Isakov
-
 ## Abstract
 
 Transforming broadcast ice hockey footage into a normalized bird's-eye view is a critical step for advanced sports analytics, enabling automated player tracking and tactical analysis. This is complicated by the feature sparsity of the ice surface, frequent player occlusions, and varying lighting conditions.
